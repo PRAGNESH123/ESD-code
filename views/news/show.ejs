@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>News</title>
+  <style>
+    body {
+      background: #E8CBC0;
+      background: -webkit-linear-gradient(to right, #E8CBC0, #636FA4);
+      background: linear-gradient(to right, #E8CBC0, #636FA4);
+      min-height: 100vh;
+      text-align: justify;
+    }
+    .mb-5 a{
+      color: black;
+      font-weight: bold;
+    }
+    .mb-5 img{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+  <br>
+  <div class="container">
+    <h1 class="mb-1"><%= news.title %></h1>
+    <div class="text-muted mb-2">
+      <h3>Authors: <%= news.author %> </h3>
+    </div>
+    <div class="text-muted mb-2">
+      <%= news.createdAt.toLocaleDateString() %>
+    </div>
+    <a href="/news" class="btn btn-secondary">All News</a>
+    <a href="edit/<%= news.id %>" class="btn btn-info">Edit</a>
+    <br><br>
+    <div class="mb-5">
+      <%- news.sanitizedHtml %>
+    </div>
+  </div>
+</body>
+</html>
